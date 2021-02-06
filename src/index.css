@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Bisonbold";
+  src: local("Bisonbold"),
+    url("./fonts/bisonbold.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Dashdemoozja";
+  src: local("Dashdemoozja"),
+    url("./fonts/dashdemoozja.ttf") format("truetype");
+  font-weight: normal;
+}
