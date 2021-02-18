@@ -8,7 +8,7 @@ export default function SearchField({searchQuery}) {
 
     const sendQuery = (e) => {
         setQuery(e.target.value)
-        searchQuery(query);
+        searchQuery(e.target.value);
     }
 
     return (

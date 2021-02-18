@@ -1,0 +1,10 @@
+.dropdown {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid red;
+}
+
+.dropdown-arrow {
+    border-color: red transparent transparent !important;
+}

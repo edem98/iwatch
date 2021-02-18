@@ -3,7 +3,7 @@ import {Download} from '@styled-icons/boxicons-regular/Download'
 import {Eye} from '@styled-icons/bootstrap/Eye'
 
 
-export default function MovieCard({ title, poster, language, show }) {
+export default function MovieCard({ title, poster, language, show, download }) {
 
     const showTrailer = (title) => {
       show(title)
@@ -17,10 +17,13 @@ export default function MovieCard({ title, poster, language, show }) {
       <TitleWrapper> <Title>{title}</Title></TitleWrapper>
       <BottomContaier>
         <Language>{language}</Language>
+        { download === true ? null : 
         <ActionContaier>
           <EyeWrapper onClick={() => showTrailer(title)} alt={title} ><CustomEye /></EyeWrapper>
           <DownloadWrapper><CustomDownload /></DownloadWrapper>
         </ActionContaier>
+        }
+        
       </BottomContaier>
     </ContainerWrapper>
     )
@@ -97,6 +100,8 @@ const CustomEye = styled(Eye)`
   border-radius: 3px;
 `
 
-const EyeWrapper = styled.a``
+const EyeWrapper = styled.a`
+  cursor: pointer;
+`
 
 const DownloadWrapper = styled.a``

@@ -1,35 +1,43 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
-    Link
-  } from "react-router-dom";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 import styled from 'styled-components'
+import StyledLink from './StyledLink'
+import './styles.css'
 
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: white;
-  display: flex;
-  justify-content: ${props => props.tempLeftProp ? 'flex-start' : 'center'};
-  align-items: center;
-`;
 
-export default function Header() {
+
+export default function Header({selectCategory, options}) {
+
+    const defaultOption = "";
+
+    const onSelect = (choice) => {
+        selectCategory(choice.value)
+    }
+
     return (
-        <Router>
+        <>
             <HeaderWrapper>
-                <Logo><StyledLink>Iwatch</StyledLink></Logo>
+                <Logo><StyledLink to='/'>Iwatch</StyledLink></Logo>
                 <UserZone>
                     <Collection>
-                        <StyledLink>Catégories</StyledLink>
+                        <Dropdown 
+                            options={options} 
+                            onChange={onSelect} 
+                            value={defaultOption} 
+                            placeholder="Catégories" 
+                            controlClassName='dropdown'
+                            arrowClassName='dropdown-arrow'
+                        />
                     </Collection>
                     <Collection>
-                        <StyledLink>Ma collection</StyledLink>   
+                        <StyledLink to='/downloads' >Téléchargements</StyledLink>   
                     </Collection>
                     <Avatar src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt=""/>
                 </UserZone>
             </HeaderWrapper>
-        </Router>
+        </>
     )
 }
 
